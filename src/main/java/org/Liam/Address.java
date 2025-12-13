@@ -22,12 +22,13 @@ public class Address {
             this.city = city;
             this.province = province;
             this.postalCode = postalCode.toUpperCase();
+        } else {
+            this.streetNo = null;
+            this.street = null;
+            this.city = null;
+            this.province = null;
+            this.postalCode = null;
         }
-        this.streetNo = null;
-        this.street = null;
-        this.city = null;
-        this.province = null;
-        this.postalCode = null;
     }
 
     public enum Province {
