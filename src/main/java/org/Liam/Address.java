@@ -8,11 +8,12 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Getter
+@Setter
 public class Address {
-    @Setter private Integer streetNo;
-    @Setter private String street;
-    @Setter private String city;
-    @Setter private Province province;
+    private Integer streetNo;
+    private String street;
+    private String city;
+    private Province province;
     private String postalCode;
 
     public Address(Integer streetNo, String street, String city, Province province, String postalCode) {
