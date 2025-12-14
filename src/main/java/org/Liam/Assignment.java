@@ -25,11 +25,13 @@ public class Assignment {
         this.scores = scores;
     }
 
-    public void calcAssignmentAvg() {
+    public double calcAssignmentAvg() {
         int sum = 0;
         for (int score : scores) {
             sum += score;
         }
+
+        return (double) sum / scores.toArray().length;
     }
 
     public void generateRandomScore() {
