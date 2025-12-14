@@ -25,14 +25,14 @@ public class Assignment {
         this.scores = scores;
     }
 
-    private void calcAssignmentAvg() {
+    public void calcAssignmentAvg() {
         int sum = 0;
         for (int score : scores) {
             sum += score;
         }
     }
 
-    private void generateRandomScore() {
+    public void generateRandomScore() {
         Random random = new Random();
         for (int i = 0; i < scores.toArray().length; i++) {
             int num1 = random.nextInt(0, 11);
