@@ -12,11 +12,11 @@ public class Department {
     private String departmentId;
     @Setter private String departmentName;
 
-    private static int nextId = 0;
+    private static int nextId = 1;
 
     public Department(String departmentName) {
         if (isDepartmentNameValid(departmentName)) {
-            this.departmentId = String.format("D%d", nextId++);
+            this.departmentId = String.format("D%02d", nextId++);
             this.departmentName = departmentName;
         } else {
             this.departmentId = null;
@@ -26,7 +26,7 @@ public class Department {
 
     static boolean isDepartmentNameValid(String departmentName) {
         for (char c : departmentName.toCharArray()) {
-            if (!Character.isLetter(c) || c != ' ') {
+            if (!Character.isLetter(c) && c != ' ') {
                 return false;
             }
         }
