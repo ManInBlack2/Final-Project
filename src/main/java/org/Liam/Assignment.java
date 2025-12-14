@@ -16,7 +16,7 @@ public class Assignment {
     private void calcAssignmentAvg() {
         int sum = 0;
         for (int score : scores) {
-            sum =+ score;
+            sum += score;
         }
     }
 
