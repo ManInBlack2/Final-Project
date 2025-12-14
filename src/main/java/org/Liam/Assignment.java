@@ -1,11 +1,15 @@
 package org.Liam;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+@EqualsAndHashCode
 @Getter
+@Setter
 public class Assignment {
     private String assignmentId;
     private String assignmentName;
@@ -13,6 +17,13 @@ public class Assignment {
     private ArrayList<Integer> scores;
 
     private static int nextId = 1;
+
+    public Assignment(String assignmentName, double weight, ArrayList<Integer> scores) {
+        this.assignmentId = String.format("%02d", nextId++);
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.scores = scores;
+    }
 
     private void calcAssignmentAvg() {
         int sum = 0;
