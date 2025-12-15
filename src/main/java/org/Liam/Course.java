@@ -60,7 +60,7 @@ public class Course {
 
         for (int i = 0; i < students.size(); i++) {
             for (Assignment assignment : assignments) {
-                averages[i] += (int) (assignment.getScores().size() * (assignment.getWeight() / 100));
+                averages[i] += (int) (assignment.getScores().get(i) * (assignment.getWeight() / 100));
             }
         }
 
@@ -98,7 +98,7 @@ public class Course {
         int[] avgs = generateScores();
 
         System.out.printf("Course: %s(%s)\n", courseName, courseId);
-        System.out.print("                           ");
+        System.out.print("                            ");
         for (Assignment assignment : assignments) {
             System.out.printf("%15s", assignment.getAssignmentName());
         }
@@ -110,9 +110,9 @@ public class Course {
             }
             System.out.printf("%15d\n", avgs[i]);
         }
-        System.out.println("        Average             ");
+        System.out.print("        Average             ");
         for (Assignment assignment : assignments) {
-            System.out.printf("%15f", assignment.calcAssignmentAvg());
+            System.out.printf("%15d", (int)assignment.calcAssignmentAvg());
         }
     }
 
