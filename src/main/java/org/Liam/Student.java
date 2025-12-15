@@ -76,6 +76,10 @@ public class Student {
             }
         }
 
+        for (Assignment assignment : course.getAssignments()) {
+            assignment.getScores().removeFirst();
+        }
+
         return hasCourse;
     }
 
