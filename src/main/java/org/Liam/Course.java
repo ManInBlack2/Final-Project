@@ -24,8 +24,8 @@ public class Course {
         this.courseName = courseName;
         this.credits = credits;
         this.department = department;
-        this.assignments = null;
-        this.students = null;
+        this.assignments = new ArrayList<>();
+        this.students = new ArrayList<>();
     }
 
     public boolean isAssignmentWeightValid() {
@@ -76,15 +76,15 @@ public class Course {
             assignments.get(i).generateRandomScore();
         }
 
-        Integer[] sums = new Integer[students.toArray().length];
+        Integer[] avgs = new Integer[students.toArray().length];
 
         for (int i = 0; i < assignments.toArray().length; i++) {
-            for (int j = 0; j < sums.length; j++) {
-                sums[j] += (int)(assignments.get(i).getScores().get(j) * assignments.get(i).getWeight() / 100);
+            for (int j = 0; j < avgs.length; j++) {
+                avgs[j] += (int)(assignments.get(i).getScores().get(j) * assignments.get(i).getWeight() / 100);
             }
         }
 
-        return sums;
+        return avgs;
     }
 
     public void displayScores() {
@@ -109,11 +109,22 @@ public class Course {
         }
     }
 
-//    public String toSimplifiedString() {
-//        return "courseId=" + courseId +
-//                "courseName=" + courseName +
-//                "credits=" + credits +
-//                "departmentName" + department;
-//    }
+    public String toSimplifiedString() {
+        return "courseId=" + courseId +
+                "courseName=" + courseName +
+                "credits=" + credits +
+                "departmentName" + department;
+    }
 
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId='" + courseId + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", credits=" + credits +
+                ", department=" + department +
+                ", assignments=" + assignments +
+                ", students=" + students.stream().map(Student -> Student.toSimplifiedString()).toList() +
+                '}';
+    }
 }
