@@ -79,15 +79,15 @@ public class Course {
     }
 
     public void generateScores() {
-        for (int i = 0; i < assignments.size(); i++) {
-            assignments.get(i).generateRandomScore();
+        for (Assignment assignment : assignments) {
+            assignment.generateRandomScore();
         }
 
         int[] avgs = new int[students.size()];
 
-        for (int i = 0; i < assignments.size(); i++) {
+        for (Assignment assignment : assignments) {
             for (int j = 0; j < avgs.length; j++) {
-                avgs[j] += (int)(assignments.get(i).getScores().get(j) * assignments.get(i).getWeight() / 100);
+                avgs[j] += (int)(assignment.getScores().get(j) * assignment.getWeight() / 100);
             }
         }
 
@@ -96,8 +96,8 @@ public class Course {
     public void displayScores() {
         System.out.printf("Course: %s(%s)\n", courseName, courseId);
         System.out.print("                           ");
-        for (int i = 0; i < assignments.size(); i++) {
-            System.out.printf("%15s", assignments.get(i).getAssignmentName());
+        for (Assignment assignment : assignments) {
+            System.out.printf("%15s", assignment.getAssignmentName());
         }
         System.out.print("    Final Score\n");
         for (int i = 0; i < students.size(); i++) {
