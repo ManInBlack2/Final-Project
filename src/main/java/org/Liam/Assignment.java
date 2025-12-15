@@ -22,7 +22,7 @@ public class Assignment {
         this.assignmentId = String.format("%02d", nextId++);
         this.assignmentName = assignmentName;
         this.weight = weight;
-        this.scores = null;
+        this.scores = new ArrayList<>();
     }
 
     public double calcAssignmentAvg() {
