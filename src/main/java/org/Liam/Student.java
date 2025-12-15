@@ -78,29 +78,24 @@ public class Student {
         return hasCourse;
     }
 
-//    public static String toSimplifiedString(ArrayList<Student> students) {
-//        String students1;
-//        for (Student student : students) {
-//
-//        }
-//
-//
-//
-//
-//
-//        return ;
-//    }
+    public String toSimplifiedString() {
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", department=" + department +
+                '}';
+    }
 
-//    @Override
-//    public String toString() {
-//        return "Student{" +
-//                "studentId='" + studentId + '\'' +
-//                ", studentName='" + studentName + '\'' +
-//                ", gender=" + gender +
-//                ", address=" + address +
-//                ", department=" + department +
-//                ", registeredCourses=" + registeredCourses +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", gender=" + gender +
+                ", address=" + address +
+                ", department=" + department +
+                ", registeredCourses=" + registeredCourses.stream().map(Course -> Course.toSimplifiedString()).toList() +
+                '}';
+    }
 
 }
