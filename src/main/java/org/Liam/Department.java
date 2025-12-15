@@ -2,7 +2,6 @@ package org.Liam;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @ToString
@@ -10,7 +9,7 @@ import lombok.ToString;
 @Getter
 public class Department {
     private String departmentId;
-    @Setter private String departmentName;
+    private String departmentName;
 
     private static int nextId = 1;
 
@@ -32,5 +31,11 @@ public class Department {
         }
 
         return true;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        if (isDepartmentNameValid(departmentName)) {
+            this.departmentName = departmentName;
+        }
     }
 }
