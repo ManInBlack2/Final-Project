@@ -61,15 +61,16 @@ public class Student {
         }
 
         if (hasCourse) {
-            for (int i = 0; i < registeredCourses.toArray().length; i++) {
+            for (int i = 0; i < registeredCourses.size(); i++) {
                 if (registeredCourses.get(i) == course) {
                     registeredCourses.remove(i);
                     break;
                 }
             }
-            for (int i = 0; i < course.getStudents().toArray().length; i++) {
+            for (int i = 0; i < course.getStudents().size(); i++) {
                 if (course.getStudents().get(i) == Student.this) {
                     course.getStudents().remove(i);
+
                     break;
                 }
             }
