@@ -49,11 +49,11 @@ public class Course {
     }
 
     public int[] calcStudentsAverage() {
-        int[] averages = new int[students.toArray().length];
+        int[] averages = new int[students.size()];
 
-        for (int i = 0; i < students.toArray().length; i++) {
+        for (int i = 0; i < students.size(); i++) {
             for (Assignment assignment : assignments) {
-                averages[i] += (int) (assignment.getScores().toArray().length * (assignment.getWeight() / 100));
+                averages[i] += (int) (assignment.getScores().size * (assignment.getWeight() / 100));
             }
         }
 
@@ -64,39 +64,36 @@ public class Course {
         Assignment assignment = new Assignment(assignmentName, weight);
 
         for (Student student : students) {
-            assignment.getScores().add(null);
+            assignment.getScores().add(0);
         }
 
         assignments.add(assignment);
         return true;
     }
 
-    public Integer[] generateScores() {
-        for (int i = 0; i < assignments.toArray().length; i++) {
+    public void generateScores() {
+        for (int i = 0; i < assignments.size(); i++) {
             assignments.get(i).generateRandomScore();
         }
 
-        Integer[] avgs = new Integer[students.toArray().length];
+        int[] avgs = new int[students.size()];
 
-        for (int i = 0; i < assignments.toArray().length; i++) {
+        for (int i = 0; i < assignments.size(); i++) {
             for (int j = 0; j < avgs.length; j++) {
                 avgs[j] += (int)(assignments.get(i).getScores().get(j) * assignments.get(i).getWeight() / 100);
             }
         }
 
-        return avgs;
     }
 
     public void displayScores() {
-        Integer[] avgs = generateScores();
-
         System.out.printf("Course: %s(%s)\n", courseName, courseId);
         System.out.print("                           ");
-        for (int i = 0; i < assignments.toArray().length; i++) {
+        for (int i = 0; i < assignments.size(); i++) {
             System.out.printf("%15s", assignments.get(i).getAssignmentName());
         }
         System.out.print("    Final Score\n");
-        for (int i = 0; i < students.toArray().length; i++) {
+        for (int i = 0; i < students.size(); i++) {
             System.out.printf("        %-20s", students.get(i).getStudentName());
             for (Assignment assignment : assignments) {
                 System.out.printf("%15d", assignment.getScores().get(i));

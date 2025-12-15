@@ -31,13 +31,13 @@ public class Assignment {
             sum += score;
         }
 
-        return (double) sum / scores.toArray().length;
+        return (double) sum / scores.size();
     }
 
     public void generateRandomScore() {
         Random random = new Random();
 
-        for (int i = 0; i < scores.toArray().length; i++) {
+        for (int i = 0; i < scores.size(); i++) {
             int num1 = random.nextInt(0, 11);
 
             if (num1 == 0) {
