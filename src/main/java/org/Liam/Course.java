@@ -111,9 +111,10 @@ public class Course {
 
     public String toSimplifiedString() {
         return "courseId=" + courseId +
-                "courseName=" + courseName +
-                "credits=" + credits +
-                "departmentName" + department + "\n";
+                ", courseName=" + courseName +
+                ", credits=" + credits +
+                ", departmentName" + department + "\n" +
+                '}';
     }
 
     @Override
