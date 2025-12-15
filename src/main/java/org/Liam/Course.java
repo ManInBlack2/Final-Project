@@ -113,8 +113,8 @@ public class Course {
         return "courseId=" + courseId +
                 ", courseName=" + courseName +
                 ", credits=" + credits +
-                ", departmentName" + department + "\n" +
-                '}';
+                ", departmentName" + department +
+                '}' + "\n";
     }
 
     @Override
