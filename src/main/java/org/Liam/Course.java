@@ -113,18 +113,18 @@ public class Course {
         return "courseId=" + courseId +
                 "courseName=" + courseName +
                 "credits=" + credits +
-                "departmentName" + department;
+                "departmentName" + department + "\n";
     }
 
     @Override
     public String toString() {
-        return "Course{" +
-                "courseId='" + courseId + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", credits=" + credits +
-                ", department=" + department +
-                ", assignments=" + assignments +
-                ", students=" + students.stream().map(Student -> Student.toSimplifiedString()).toList() +
-                '}';
+        return "Course{" + "\n" +
+                "courseId='" + courseId + '\'' + ", \n" +
+                "courseName='" + courseName + '\'' + ", \n" +
+                "credits=" + credits + ", \n" +
+                "department=" + department + ", \n" +
+                "assignments=" + assignments + ", \n" +
+                "students=" + students.stream().map(Student -> Student.toSimplifiedString()).toList() +
+                '}' + "\n";
     }
 }

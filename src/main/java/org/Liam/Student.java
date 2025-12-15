@@ -83,19 +83,19 @@ public class Student {
                 "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", department=" + department +
-                '}';
+                '}' + "\n";
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "studentId='" + studentId + '\'' +
-                ", studentName='" + studentName + '\'' +
-                ", gender=" + gender +
-                ", address=" + address +
-                ", department=" + department +
-                ", registeredCourses=" + registeredCourses.stream().map(Course -> Course.toSimplifiedString()).toList() +
-                '}';
+        return "Student{" + "\n" +
+                "studentId='" + studentId + '\'' + ", \n" +
+                "studentName='" + studentName + '\'' + ", \n" +
+                "gender=" + gender + ", \n" +
+                "address=" + address + ", \n" +
+                "department=" + department + ", \n" +
+                "registeredCourses=" + registeredCourses.stream().map(Course -> Course.toSimplifiedString()).toList() +
+                '}'+ "\n";
     }
 
 }
