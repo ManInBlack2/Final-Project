@@ -39,7 +39,14 @@ public class Course {
     }
 
     public boolean registerStudent(Student student) {
+        for (Student student1 : this.students) {
+            if (student.equals(student1)) {
+                return false;
+            }
+        }
+
         students.add(student);
+        student.getRegisteredCourses().add(Course.this);
 
         for (Assignment assignment : assignments) {
             assignment.getScores().add(null);
@@ -53,7 +60,7 @@ public class Course {
 
         for (int i = 0; i < students.size(); i++) {
             for (Assignment assignment : assignments) {
-                averages[i] += (int) (assignment.getScores().size * (assignment.getWeight() / 100));
+                averages[i] += (int) (assignment.getScores().size() * (assignment.getWeight() / 100));
             }
         }
 
